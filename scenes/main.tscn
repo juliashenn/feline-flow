@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://df22c18x3q2jc"]
+
+[ext_resource type="PackedScene" uid="uid://rm6ut8v6qtnd" path="res://scenes/bg.tscn" id="1_6yt2p"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_55kvr"]
+[ext_resource type="PackedScene" uid="uid://cesjchou60nhs" path="res://scenes/ground.tscn" id="2_sv6ls"]
+[ext_resource type="PackedScene" uid="uid://2ofqocymggme" path="res://scenes/cat.tscn" id="3_ojhbl"]
+[ext_resource type="PackedScene" uid="uid://8csbhq1mxky6" path="res://scenes/hud.tscn" id="5_annr7"]
+[ext_resource type="AudioStream" uid="uid://bo4ggdfpkbe70" path="res://assets/sounds/music/rose_water.mp3" id="6_6rddp"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_55kvr")
+
+[node name="Bg" parent="." instance=ExtResource("1_6yt2p")]
+
+[node name="Ground" parent="." instance=ExtResource("2_sv6ls")]
+
+[node name="Cat" parent="." instance=ExtResource("3_ojhbl")]
+position = Vector2(81, 509)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="HUD" parent="." instance=ExtResource("5_annr7")]
+
+[node name="Song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6rddp")
+volume_db = -10.0
+autoplay = true

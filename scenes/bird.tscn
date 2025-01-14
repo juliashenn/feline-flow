@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0mmhruvpmuny"]
+
+[ext_resource type="Texture2D" uid="uid://mgcllnn07q6o" path="res://assets/imgs/Obstacles/bird_flying_anim_strip_3.png" id="1_wehjn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8v0e"]
+atlas = ExtResource("1_wehjn")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qob5l"]
+atlas = ExtResource("1_wehjn")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqabo"]
+atlas = ExtResource("1_wehjn")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_otarp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8v0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qob5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqabo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Bird" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_otarp")
+autoplay = "default"
+frame_progress = 0.274368
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-36, -19, 36, -20, 14, 26)
